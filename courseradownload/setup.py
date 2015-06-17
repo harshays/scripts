@@ -3,7 +3,7 @@ from setuptools import setup
 setup(name='courseradownload',
     version='0.2',
     description='Coursera Downloader',
-    url='http://github.com/harshays/pyground',
+    url='http://github.com/harshays/scripts',
     author='Harshay',
     author_email='harshay.rshah@gmail.com',
     license='MIT',
