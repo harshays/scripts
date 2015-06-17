@@ -59,30 +59,3 @@ def get_dept(cname):
 
 if __name__ == '__main__':
     print parse_csv('mygrades.csv')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
