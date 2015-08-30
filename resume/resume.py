@@ -13,9 +13,6 @@ def get_recent_files(folder, file_filter, limit):
         files  = list(filter(lambda f: f.endswith(file_filter), files))
     recent = [(f, datetime.fromtimestamp(int(os.stat(f).st_ctime))) for f in files]
     recent.sort(key=lambda a: a[-1], reverse=True)
-    for f, d in recent:
-        if "'" in f:
-            print (f)
     return recent[:limit]
 
 def get_parser():
