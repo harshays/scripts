@@ -1,9 +1,0 @@
-GPA w.r.t. semester: 
-	 semester 1: 4.000, 8 credits 
-	 semester 2: 3.670, 10 credits 
-	 semester 3: 3.000, 12 credits 
-
-GPA w.r.t. dept: 
-	 dept MISC: 3.490, 30 credits 
-
-	 Total GPA: 3.490, 30 credits 
