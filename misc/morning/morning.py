@@ -28,7 +28,8 @@ def parse_args():
     return args_true[0] if args_true else ('all', True)
 
 def _read_websites_csv():
-    with open('./websites.csv', 'rb') as web_csv:
+    website_dir = os.path.join(FILE_DIR, 'websites.csv')
+    with open(website_dir, 'rb') as web_csv:
         web_list = list(csv.reader(web_csv))
     websites = defaultdict(list)
     for w, pr in web_list: websites[int(pr.strip())].append(w if w.startswith('http') else 'http://'+w)
@@ -39,7 +40,6 @@ def get_websites(percent, num):
     dl = sum([d[k] for k in sorted(d)], [])
     percent = percent if 0 <= percent <= 1 else 1
     n = min(round(percent*len(dl)), len(dl)) if not num else (num[0] if isinstance(num, list) else num)
-    print (dl[:int(n)])
     return dl[:int(n)]
 
 def call_fn(arg, val):
