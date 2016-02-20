@@ -73,5 +73,29 @@ class Pinboard_to_Pocket(object):
         self.pocket     = Pocket(self.config['pocket']['key'], self.config['pocket']['token'])
         self.pinboard   = Pinboard(self.config['pinboard']['token'])
 
+    def delete_pocket(self):
+        posts = self.pocket.get_posts()
+        items = map(lambda p: int(p['item_id']), posts['list'].values())
+        return self.pocket.delete_multiple(list(items))
+
+    def pinboard_to_pocket(self, delete_pocket=False):
+        if delete_pocket: self.delete_pocket()
+        pins = self.pinboard.get_posts()
+        data = [dict(url=p['href'], title=p['description'], tags=','.join(p['tags'].split())) for p in pins]
+        return self.pocket.add_multiple(data)
+
+    def delete_pinboard(self):
+        raise NotImplementedError
+
+    def pocket_to_pinboard(self, delete_pinboard=False):
+        raise NotImplementedError
+
 if __name__ == '__main__':
     pass
+
+
+
+
+
+
+
